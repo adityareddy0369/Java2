@@ -1,29 +1,30 @@
 package com.practice.java.DesignPatterns.Creational;
 
-public class Singleton {
+// Ensures a class has only one instance and provides a global point of access to it.
+public class SingletonDesign {
 
     // Volatile keyword ensures that changes to singletonObj are visible to all threads
-    public static volatile Singleton singletonObj;
+    public static volatile SingletonDesign singletonDesignObj;
 
     // Private constructor to prevent instantiation
-    private Singleton() {
+    private SingletonDesign() {
         // Prevent reflection-based instantiation
-        if (singletonObj != null) {
+        if (singletonDesignObj != null) {
             throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
         }
     }
 
-    public static Singleton getInstance() {
+    public static SingletonDesign getInstance() {
         // Double lock mechanism
         // First null check is to bypass the synchronized block and avoid the performance cost associated with locking.
-        if(singletonObj == null) { // First check (no lock)
-            synchronized (Singleton.class) {
-                if(singletonObj == null) { // Second check (with lock)
-                    singletonObj = new Singleton();
+        if(singletonDesignObj == null) { // First check (no lock)
+            synchronized (SingletonDesign.class) {
+                if(singletonDesignObj == null) { // Second check (with lock)
+                    singletonDesignObj = new SingletonDesign();
                 }
             }
         }
-        return singletonObj;
+        return singletonDesignObj;
     }
 
     // Override clone to prevent cloning

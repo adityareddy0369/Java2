@@ -1,7 +1,8 @@
 package com.practice.java.DesignPatterns.Structural;
 
-//Computer class that needs to work with a ModernPrinter, but you have an existing OldPrinter class that doesn’t match the expected interface.
-//So basically we do this when the old interface is incompatible
+// Converts the interface of a class into another interface clients expect.
+// Computer class that needs to work with a ModernPrinter, but you have an existing OldPrinter class that doesn’t match the expected interface.
+// So basically we do this when the old interface is incompatible
 public class Adapter {
     public static void main(String[] args) {
 
